@@ -1,0 +1,3 @@
+# Baseline defaults for cert-manager-istio-csr.
+# Configure cert-manager issuer references and trust domain specific settings here.
+{}

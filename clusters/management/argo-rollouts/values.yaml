@@ -1,0 +1,5 @@
+# argoproj/argo-helm chart argo-rollouts — controller install only.
+# See https://github.com/argoproj/argo-helm/tree/main/charts/argo-rollouts
+installCRDs: true
+controller:
+  replicas: 1

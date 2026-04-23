@@ -1,0 +1,5 @@
+# Baseline defaults for jetstack/cert-manager — tune for your CA (e.g. Google CAS issuer).
+installCRDs: true
+global:
+  leaderElection:
+    namespace: cert-manager

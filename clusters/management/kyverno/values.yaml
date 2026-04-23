@@ -1,0 +1,4 @@
+# kyverno chart install values only (policies live in kyverno-policies repo).
+# See https://kyverno.github.io/kyverno
+crds:
+  install: true

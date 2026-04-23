@@ -1,0 +1,3 @@
+# Baseline defaults for cert-manager-google-cas-issuer.
+# Add service account / workload identity and issuer-specific settings as needed.
+{}
