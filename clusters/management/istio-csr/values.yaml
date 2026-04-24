@@ -1,3 +1,8 @@
 # Baseline defaults for cert-manager-istio-csr.
 # Configure cert-manager issuer references and trust domain specific settings here.
-{}
+app:
+  certmanager:
+    issuer:
+      name: google-cas-issuer
+      kind: ClusterIssuer
+      group: cert-manager.io
