@@ -1,3 +1,5 @@
-# Baseline defaults for cert-manager-google-cas-issuer.
-# Add service account / workload identity and issuer-specific settings as needed.
-{}
+# cert-manager-google-cas-issuer — management cluster
+# Workload Identity: set the GSA email (replace the placeholder).
+serviceAccount:
+  annotations:
+    iam.gke.io/gcp-service-account: cert-manager-cas-issuer@project-3d092af6-3c65-4b1c-982.iam.gserviceaccount.com
