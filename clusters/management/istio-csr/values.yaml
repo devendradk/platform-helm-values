@@ -6,6 +6,10 @@ app:
       name: google-cas-issuer
       kind: GoogleCASClusterIssuer
       group: cas-issuer.jetstack.io
+  istio:
+    revisions:
+      - default
+      - 1-29-1
   tls:
     rootCAFile: /var/run/istio-csr-root/root-certs.pem
 
