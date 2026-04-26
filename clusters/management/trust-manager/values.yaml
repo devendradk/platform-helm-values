@@ -45,6 +45,3 @@ extraObjects:
       target:
         configMap:
           key: root-certs.pem
-        namespaceSelector:
-          matchLabels:
-            kubernetes.io/metadata.name: cert-manager
