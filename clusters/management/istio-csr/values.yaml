@@ -4,5 +4,28 @@ app:
   certmanager:
     issuer:
       name: google-cas-issuer
-      kind: ClusterIssuer
-      group: cert-manager.io
+      kind: GoogleCASClusterIssuer
+      group: cas-issuer.jetstack.io
+  tls:
+    rootCAFile: /var/run/istio-csr-root/root-certs.pem
+
+volumes:
+  - name: root-ca
+    configMap:
+      name: istio-csr-root-bundle
+
+volumeMounts:
+  - name: root-ca
+    mountPath: /var/run/istio-csr-root
+    readOnly: true
+
+extraObjects:
+  - |
+    apiVersion: cas-issuer.jetstack.io/v1beta1
+    kind: GoogleCASClusterIssuer
+    metadata:
+      name: google-cas-issuer
+    spec:
+      project: project-3d092af6-3c65-4b1c-982
+      location: us-central1
+      caPoolId: enterprise-ca-pool

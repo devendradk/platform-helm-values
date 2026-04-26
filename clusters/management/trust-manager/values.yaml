@@ -1,0 +1,50 @@
+# trust-manager values for management cluster.
+app:
+  trust:
+    namespace: cert-manager
+
+extraObjects:
+  - apiVersion: trust.cert-manager.io/v1alpha1
+    kind: Bundle
+    metadata:
+      name: istio-csr-root-bundle
+    spec:
+      sources:
+        - inLine: |
+            -----BEGIN CERTIFICATE-----
+            MIIFZzCCA0+gAwIBAgIUAPg0fdBwJfkP2z4JgORTItAzKwQwDQYJKoZIhvcNAQEL
+            BQAwKTERMA8GA1UEChMIa3Vsa2FybmkxFDASBgNVBAMTC0NBUyBSb290IENBMB4X
+            DTI2MDQyMjE2NDE1NVoXDTM2MDQxOTE2NDE1NFowKTERMA8GA1UEChMIa3Vsa2Fy
+            bmkxFDASBgNVBAMTC0NBUyBSb290IENBMIICIjANBgkqhkiG9w0BAQEFAAOCAg8A
+            MIICCgKCAgEAiUMxoMH3TAv6ZgdIq+ZFjKeffELK5tvW9Bs6kTNZTWYPdjJ4Ccc8
+            yyKhPhj6q6MSZNBqjm9qzTqjunJCF3V6G44vnMEnlGZIxhRoI6J4ELEEjJ1EUqSI
+            OwtPb61j/9OvnRFlEM5OWPWLVZiNeHwB0o0za6KvIfcnLFLY+U9PvhRSkuGOtcfD
+            Z3tAIAXEp6gnUecoBxR6BTW2x58YrHeQvEwWPlpXSPfcdDLqSAK9zT0FOosEp/kX
+            UhoF4edPztP49PSh1Mt+iVynllAht6yM670bKQRgaqnuONd3ecHftC9kfdHvlD3z
+            6BJE3QyJgoXDRprs3cmg1pScVfHDEAoZZGZfG1iFfvN/eGdXVTJz8tKGPsEpv9Oe
+            AHEiMqguZJ4sRvAGRXCCLfI8Idp6OHuYAJZanwwuvAYIyXNugccBtIYU8tg5PJRj
+            +2HTMwxbDBrs0e2oVTqWWyllKi09AtG3mDlev/vDcYqoo/2gqoPI7F7/qT9bAhGz
+            KlUOVboXnYWWA3Qxnp9j6WzaloCkWjVaUvFdYHu/+zOPbnVBmJ/u379wjSnmKwWA
+            SBOgcksKYEeO1JGh7dKd8FnilXFizV0HJ7T95EJXa32Vfm7MJjcFPo1LEwXLoO7+
+            Eu9EaCWsIpc+jKCUjB8zjpQtsL7LqWAuPhe/br8oxs35JlLwSIgLdiMCAwEAAaOB
+            hjCBgzAOBgNVHQ8BAf8EBAMCAQYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUF
+            BwMCMBIGA1UdEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYEFC4Zn/9E4ok67DqTks7c
+            uOmwU42bMB8GA1UdIwQYMBaAFC4Zn/9E4ok67DqTks7cuOmwU42bMA0GCSqGSIb3
+            DQEBCwUAA4ICAQBNsGxY4wq2MtDV3Rd1dXftkdLOQGx8MveSntzvbr7iYUJX7c0B
+            zLKh8eQ4sou0/F9wDUz1muxMQ58Dn2lmiGtpmTgok4KpphiGfONCdrbaSaFw5GXb
+            xs/buJx33xqyz8MY18Ckks7gLRBhctY1wy4YwZLt/0ZLEBmQ2s+mdjvgsV8KxwVC
+            9VqdxECDE+1SSVlpSupPpKulWdxU79WWq1FRPBAKRSN6rJH+etEax04aNVxfWlhw
+            QA4YZjvTAx/Kf2Pd7nfQvlJQGGIUCCare70oCAgOF61kcg6+OplVbYga0hqDnGGU
+            Q6ojG5b+A/Ws5PgcB//445fHMCuNm5OP8zMzChA+kLfy2tlAxuVMDXrC6EQFQz6C
+            MDAXFfBadNXXzdmjfPTSRtU6uW1o4mIqPflqXmE65ojTlw1FFMkTboAf9kmHzcJz
+            45dz7fLw3/fSPAbK76YYVT21BXDOQmZNbv0DVQwW3zCnSWHrMxW8zafHLpe8ZOxm
+            i+d1V8t3AdZ0hc7vzVr5RC5PIOEkX2KJfN6yY3CZkOxiOriZ44iJ/S3E0eKITin4
+            O7sezCNFqCDBOQ3JXO72fcQMp0pOgjjguh6Nqgf7PGgROoXOL9C3n+sPIb5qK4hw
+            yhZchZs4SnH4gSr640W+72FoO19MZFM0ca5xB4QUFJNxg/cop79T2QVvKw==
+            -----END CERTIFICATE-----
+      target:
+        configMap:
+          key: root-certs.pem
+        namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: cert-manager
