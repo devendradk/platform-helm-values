@@ -11,6 +11,7 @@ app:
       - default
       - 1-29-1
   tls:
+    trustDomain: project-3d092af6-3c65-4b1c-982.svc.id.goog
     rootCAFile: /var/run/istio-csr-root/root-certs.pem
 
 volumes:
